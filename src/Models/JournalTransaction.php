@@ -19,17 +19,17 @@ use Illuminate\Database\Eloquent\Model;
  */
 class JournalTransaction extends Model
 {
-	
+
 	/**
 	 * @var string
 	 */
 	protected $table = 'accounting_journal_transactions';
-	
+
 	/**
 	 * @var string
 	 */
-	protected $currency = 'USD';
-	
+	protected $currency = 'KES';
+
 	/**
 	 * @var array
 	 */
@@ -38,7 +38,7 @@ class JournalTransaction extends Model
 		'deleted_at',
 		'udpated_at'
 	];
-	
+
 	/**
 	 * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
 	 */
@@ -56,7 +56,7 @@ class JournalTransaction extends Model
 			$transaction->journal->resetCurrentBalances();
 		});
 	}
-	
+
 	/**
 	 * @param Model $object
 	 * @return JournalTransaction
@@ -68,8 +68,8 @@ class JournalTransaction extends Model
 		$this->save();
 		return $this;
 	}
-	
-	
+
+
 	/**
 	 *
 	 */
@@ -81,7 +81,7 @@ class JournalTransaction extends Model
 		}
 		return false;
 	}
-	
+
 	/**
 	 * @param string $currency
 	 */
@@ -89,5 +89,5 @@ class JournalTransaction extends Model
 	{
 		$this->currency = $currency;
 	}
-	
+
 }

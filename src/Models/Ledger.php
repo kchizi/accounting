@@ -18,14 +18,15 @@ use Carbon\Carbon;
  */
 class Ledger extends Model
 {
-	
+
+	protected $fillable = ['name', 'type'];
 	/**
 	 * @var string
 	 */
 	protected $table = 'accounting_ledgers';
-	
-	public $currency = 'USD';
-	
+
+	public $currency = 'KES';
+
 	/**
 	 *
 	 */
@@ -33,7 +34,7 @@ class Ledger extends Model
 	{
 		return $this->hasMany(Journal::class);
 	}
-	
+
 	/**
      * Get all of the posts for the country.
      */
@@ -41,7 +42,7 @@ class Ledger extends Model
     {
         return $this->hasManyThrough(JournalTransaction::class, Journal::class);
     }
-	
+
 	/**
 	 *
 	 */
@@ -52,10 +53,10 @@ class Ledger extends Model
 		} else {
 			$balance = $this->journal_transctions->sum('credit') - $this->journal_transctions->sum('debit');
 		}
-		
+
 		return new Money($balance, new Currency($this->currency));
 	}
-	
+
 		/**
 	 *
 	 */
@@ -63,6 +64,6 @@ class Ledger extends Model
 	{
 		return $this->getCurrentBalance()->getAmount() / 100;
 	}
-	
-	
+
+
 }
