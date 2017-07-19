@@ -82,6 +82,15 @@ class Accounting
     	return $this->transctions_pending;
     }
 
+		    /**
+		     * Register the application services.
+		     *
+		     * @return void
+		     */
+		    public function register()
+		    {
+		        //
+		    }
 	/**
 	 *
 	 */
