@@ -9,6 +9,7 @@ use Money\Currency;
 use Scottlaurent\Accounting\Exceptions\InvalidJournalEntryValue;
 use Scottlaurent\Accounting\Exceptions\InvalidJournalMethod;
 use Scottlaurent\Accounting\Exceptions\DebitsAndCreditsDoNotEqual;
+use Illuminate\Support\ServiceProvider;
 
 use DB;
 
@@ -16,7 +17,7 @@ use DB;
  * Class Accounting
  * @package Scottlaurent\Accounting\Services
  */
-class Accounting
+class Accounting extends ServiceProvider
 {
 
 	/**
