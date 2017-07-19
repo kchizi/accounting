@@ -18,12 +18,12 @@ use DB;
  */
 class Accounting
 {
-	
+
 	/**
 	 * @var array
 	 */
 	protected $transctions_pending = [];
-	
+
 	/**
 	 * @return Accounting
 	 */
@@ -31,7 +31,7 @@ class Accounting
     {
         return new self;
     }
-	
+
 	/**
 	 * @param Journal $journal
 	 * @param string $method
@@ -43,15 +43,15 @@ class Accounting
 	 * @internal param int $value
 	 */
 	function addTransaction(Journal $journal, string $method, Money $money, string $memo = null, $referenced_object = null) {
-    	
+
     	if (!in_array($method,['credit','debit'])) {
     		throw new InvalidJournalMethod;
 	    }
-	    
+
     	if ($money->getAmount() <= 0) {
     		throw new InvalidJournalEntryValue();
 	    }
-	    
+
     	$this->transctions_pending[] = [
     	    'journal' => $journal,
 		    'method' => $method,
@@ -59,9 +59,9 @@ class Accounting
 		    'memo' => $memo,
 		    'referenced_object' => $referenced_object
 	    ];
-    	
+
     }
-	
+
 	/**
 	 * @param Journal $journal
 	 * @param string $method
@@ -74,14 +74,14 @@ class Accounting
 		$money = new Money($value, new Currency('USD'));
 		$this->addTransaction($journal,$method,$money, $memo, $referenced_object);
     }
-	
+
 	/**
 	 * @return array
 	 */
 	function getTransactionsPending() {
     	return $this->transctions_pending;
     }
-	
+
 	/**
 	 *
 	 */
@@ -90,25 +90,27 @@ class Accounting
 		$this->verifyTransactionCreditsEqualDebits();
 
 		try {
-			
+
 			foreach ($this->transctions_pending as $transction_pending) {
 				$transaction = $transction_pending['journal']->{$transction_pending['method']}($transction_pending['money'],$transction_pending['memo']);
 				if ($object = $transction_pending['referenced_object']) {
 					$transaction->referencesObject($object);
 				}
 			}
-			
+
 			DB::commit();
-			
+
 		} catch (\Exception $e) {
-			
+
 			DB::rollBack();
-			
+
 			throw new TransactionCouldNotBeProcessed('Rolling Back Database. Message: ' . $e->getMessage());
 		}
 	}
-	
-	
+
+	public static function isDeferred(){
+		return false;
+	}
 	/**
 	 *
 	 */
@@ -116,7 +118,7 @@ class Accounting
 	{
 		$credits = 0;
 		$debits = 0;
-		
+
 		foreach ($this->transctions_pending as $transction_pending) {
 			if ($transction_pending['method']=='credit') {
 				$credits += $transction_pending['money']->getAmount();
@@ -124,11 +126,11 @@ class Accounting
 				$debits += $transction_pending['money']->getAmount();
 			}
 		}
-		
+
 		if ($credits !== $debits) {
 			throw new DebitsAndCreditsDoNotEqual('In this transaction, credits == ' . $credits  . ' and debits == ' . $debits);
 		}
 	}
-	
-	
+
+
 }
