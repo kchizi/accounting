@@ -88,10 +88,10 @@ class Accounting extends ServiceProvider
 		     *
 		     * @return void
 		     */
-		    public function register()
+		   /* public function register()
 		    {
 		        //
-		    }
+		    }*/
 	/**
 	 *
 	 */
@@ -118,9 +118,9 @@ class Accounting extends ServiceProvider
 		}
 	}
 
-	public static function isDeferred(){
+	/*public function isDeferred(){
 		return false;
-	}
+	}*/
 	/**
 	 *
 	 */
