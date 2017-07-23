@@ -1,5 +1,5 @@
 {
-    "name": "kchizi/accounting",
+    "name": "ngodasamuel/accounting",
     "description": "Laravel Accounting Journals for Eloquent Models",
     "license": "MIT",
     "keywords": ["laravel", "accounting"],
