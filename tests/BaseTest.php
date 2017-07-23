@@ -5,7 +5,7 @@ use Faker\Factory as Faker;
 use Models\User;
 use Models\Account;
 use Models\CompanyJournal;
-use Scottlaurent\Accounting\Models\Ledger;
+use Ngodasamuel\Accounting\Models\Ledger;
 
 /**
  * Class BaseTest

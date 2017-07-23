@@ -1,12 +1,12 @@
 <?php
 
-namespace Scottlaurent\Accounting\ModelTraits;
+namespace Ngodasamuel\Accounting\ModelTraits;
 
-use Scottlaurent\Accounting\Models\Journal;
+use Ngodasamuel\Accounting\Models\Journal;
 
 /**
  * Class AccountingJournal
- * @package Scottlaurent\Accounting\ModelTraits
+ * @package Ngodasamuel\Accounting\ModelTraits
  */
 trait AccountingJournal {
 	

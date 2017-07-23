@@ -1,6 +1,6 @@
 <?php
 
-namespace Scottlaurent\Accounting\Models;
+namespace Ngodasamuel\Accounting\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Money\Money;
@@ -9,7 +9,7 @@ use Carbon\Carbon;
 
 /**
  * Class Journal
- * @package Scottlaurent\Accounting
+ * @package Ngodasamuel\Accounting
  * @property    Money                  $balance
  * @property    string                 $currency
  * @property    Carbon                 $updated_at

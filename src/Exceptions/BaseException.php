@@ -1,6 +1,6 @@
 <?php
 
-namespace Scottlaurent\Accounting\Exceptions;
+namespace Ngodasamuel\Accounting\Exceptions;
 
 use Exception;
 

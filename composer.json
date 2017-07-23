@@ -1,12 +1,12 @@
 {
-    "name": "scottlaurent/accounting",
+    "name": "kchizi/accounting",
     "description": "Laravel Accounting Journals for Eloquent Models",
     "license": "MIT",
     "keywords": ["laravel", "accounting"],
     "authors": [
         {
-            "name": "Scott Laurent",
-            "email": "scott@baselineapplications.com"
+            "name": "Samuel Ngoda",
+            "email": "ngodasamuel@gmail.com"
         }
     ],
     "require": {
@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Scottlaurent\\Accounting\\": "src/"
+            "Ngodasamuel\\Accounting\\": "src/"
         }
     }
 }

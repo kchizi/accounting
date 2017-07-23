@@ -24,7 +24,7 @@ I am an accountant and a Laravel developer.  I wrote this package to provide a s
 
 ## <a name="installation"></a>Installation
 
-1) composer require "scottlaurent/accounting"
+1) composer require "Ngodasamuel/accounting"
 
 2) copy the files in the migrations folder over to your migrations and run them.  This will install 3 new tables in your database.  The ledger migration is optional and you should look at SCENARIO C below to determine if you will even use this.
 
@@ -32,7 +32,7 @@ I am an accountant and a Laravel developer.  I wrote this package to provide a s
 
 4) ** most of the time you will want to add the $model->initJournal() into the static::created() method of your model so that a journal is created when you create the model object itself.
 
-5) If using double entry, add Scottlaurent\Accounting\Services\Accounting::class to your service providers
+5) If using double entry, add Ngodasamuel\Accounting\Services\Accounting::class to your service providers
 
 
 ## <a name="code-sample"></a>Code Sample

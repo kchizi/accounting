@@ -3,7 +3,7 @@
 // ensure we load our base file (PHPStorm Bug when using remote interpreter )
 require_once ('BaseTest.php');
 
-use Scottlaurent\Accounting\Services\Accounting as AccountingService;
+use Ngodasamuel\Accounting\Services\Accounting as AccountingService;
 
 
 /**
@@ -13,7 +13,7 @@ class DoubleEntryTest extends BaseTest
 {
 	
 	/**
-	 * @expectedException \Scottlaurent\Accounting\Exceptions\InvalidJournalMethod
+	 * @expectedException \Ngodasamuel\Accounting\Exceptions\InvalidJournalMethod
 	 */
 	public function testMakingSureWeOnlySendDebitOrCreditCommands() {
 		$transaction_group = AccountingService::newDoubleEntryTransactionGroup();
@@ -21,7 +21,7 @@ class DoubleEntryTest extends BaseTest
 	}
 	
 	/**
-	 * @expectedException \Scottlaurent\Accounting\Exceptions\InvalidJournalEntryValue
+	 * @expectedException \Ngodasamuel\Accounting\Exceptions\InvalidJournalEntryValue
 	 */
 	public function testMakingSureDoubleEntryValueIsNotZero() {
 		$transaction_group = AccountingService::newDoubleEntryTransactionGroup();
@@ -29,7 +29,7 @@ class DoubleEntryTest extends BaseTest
 	}
 	
 	/**
-	 * @expectedException \Scottlaurent\Accounting\Exceptions\InvalidJournalEntryValue
+	 * @expectedException \Ngodasamuel\Accounting\Exceptions\InvalidJournalEntryValue
 	 */
 	public function testMakingSureDoubleEntryValueIsNotNegative() {
 		$transaction_group = AccountingService::newDoubleEntryTransactionGroup();
@@ -37,7 +37,7 @@ class DoubleEntryTest extends BaseTest
 	}
 	
 	/**
-	 * @expectedException \Scottlaurent\Accounting\Exceptions\DebitsAndCreditsDoNotEqual
+	 * @expectedException \Ngodasamuel\Accounting\Exceptions\DebitsAndCreditsDoNotEqual
 	 */
 	public function testMakingSureDoubleEntryCreditsAndDebitsMatch() {
 		$transaction_group = AccountingService::newDoubleEntryTransactionGroup();

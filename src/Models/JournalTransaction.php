@@ -1,13 +1,13 @@
 <?php
 
-namespace Scottlaurent\Accounting\Models;
+namespace Ngodasamuel\Accounting\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Ledger
  *
- * @package Scottlaurent\Accounting
+ * @package Ngodasamuel\Accounting
  * @property    int                 $journal_id
  * @property    int                 $debit
  * @property    int                 $credit

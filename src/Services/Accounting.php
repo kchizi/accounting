@@ -1,21 +1,21 @@
 <?php
 
-namespace Scottlaurent\Accounting\Services;
+namespace Ngodasamuel\Accounting\Services;
 
-use Scottlaurent\Accounting\Models\Journal;
+use Ngodasamuel\Accounting\Models\Journal;
 use Money\Money;
 use Money\Currency;
 
-use Scottlaurent\Accounting\Exceptions\InvalidJournalEntryValue;
-use Scottlaurent\Accounting\Exceptions\InvalidJournalMethod;
-use Scottlaurent\Accounting\Exceptions\DebitsAndCreditsDoNotEqual;
+use Ngodasamuel\Accounting\Exceptions\InvalidJournalEntryValue;
+use Ngodasamuel\Accounting\Exceptions\InvalidJournalMethod;
+use Ngodasamuel\Accounting\Exceptions\DebitsAndCreditsDoNotEqual;
 use Illuminate\Support\ServiceProvider;
 
 use DB;
 
 /**
  * Class Accounting
- * @package Scottlaurent\Accounting\Services
+ * @package Ngodasamuel\Accounting\Services
  */
 class Accounting extends ServiceProvider
 {
